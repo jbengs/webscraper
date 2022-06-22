@@ -1,7 +1,6 @@
 # This is a code along of the turtorial "Beautiful Soup: Build a Web Scraper With Python"
 # found on https://realpython.com/beautiful-soup-web-scraper-python/
 
-import imp
 import requests
 from bs4 import BeautifulSoup
 
