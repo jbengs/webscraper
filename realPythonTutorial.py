@@ -1,4 +1,4 @@
-# This is a code along of the turtorial "Beautiful Soup: Build a Web Scraper With Python"
+# This is a code along of the tutorial "Beautiful Soup: Build a Web Scraper With Python"
 # found on https://realpython.com/beautiful-soup-web-scraper-python/
 
 import requests
