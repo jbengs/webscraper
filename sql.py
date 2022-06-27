@@ -1,10 +1,7 @@
 import sqlite3
-from winreg import QueryInfoKey
 connection = sqlite3.connect("database.db")
 
-
 class sqlClass:
-
     def __init__(self):
         self.sqliteConnection = sqlite3.connect("database.db")
         self.cursor = self.sqliteConnection.cursor()
