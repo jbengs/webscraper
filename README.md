@@ -1,6 +1,18 @@
 # webscraper
 A webscraper built to scrape Klocksnack
 
+## How to use
+    1. Download the files.
+    2. Set up a virtual environment in python
+    3. Install dependencies
+    4. Launch app.py by typing *python app.py* in the active virtual environment
+    5. If it is the first time, you are prompted to log in to the google cloud project
+        1. The login creates a token.json file, that is .gitignored
+        2. If you need to redo login, simply remove the token.json file
+    6. The app scans Klocksnack every 10 minutes for the searchwords provided in app.py
+    7. To modify searchwords, change app.py
+    8. To modify reciever email, modify gmail.py
+
 ## Third party requirments
 This application requiers an gmail account and a Google cloud project with the gmail API enabled. Part of this is the use of OAuth client ID credentials.
 
@@ -21,5 +33,5 @@ The file realPythonTutorial is aa code along of the tutorial "Beautiful Soup: Bu
 
 ### App written on the road to Paris, 27/06/2022
 for now to infinity:
-    i love you and chocolate
+    *i love you and chocolate*
 end

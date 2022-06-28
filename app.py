@@ -1,13 +1,11 @@
-from ks import ks
-from gmail import Gmail
+from ks import ks # the klocksnack script
+import time
 
-gmail = Gmail()
-print("Before list labels: ")
-gmail.listLabels()
-print("Before send email: ")
-gmail.sendEmail()
+searchWords = ['omega', 'cartier', 'constellation', '168.005', '167.005', 'santos']
+klocksnack = ks(searchWords)
+klocksnack.update()
 
-#searchWords = ['oris']
-#klocksnack = ks(searchWords)
-#klocksnack.update()
-
+while True:
+  klocksnack.update()
+  time.sleep(600)
+  
