@@ -11,7 +11,6 @@ from googleapiclient.errors import HttpError
 from email.message import EmailMessage
 import base64
 
-
 class Gmail:
 
     def __init__(self):
@@ -55,16 +54,17 @@ class Gmail:
             # TODO(developer) - Handle errors from gmail API.
             print(f'An error occurred: {error}')
 
-    def sendEmail(self):
+    def sendEmail(self, forum, title, user, url):
         try:
             service = build('gmail', 'v1', credentials=self.creds)
             
             # prepare message
+            signature = "Always at your service,\nbengsklockservice"
             message = EmailMessage()
-            message.set_content('This is automated draft mail')
+            message.set_content(f'{title} was just posted on {forum} by {user}\n{url}\n\n{signature}')
             message['To'] = 'bengs.joel@gmail.com'
             message['From'] = 'bengsklockserver@gmail.com'
-            message['Subject'] = 'Automated draft'
+            message['Subject'] = f'{forum}: {title}'
 
             # encoded message
             encoded_message = base64.urlsafe_b64encode(message.as_bytes()) \
@@ -75,7 +75,7 @@ class Gmail:
                 'raw': encoded_message
             }
             
-            # send message
+            # send
             send_message = (service.users().messages().send
                             (userId="me", body=create_message).execute())
             print(F'Message Id: {send_message["id"]}')

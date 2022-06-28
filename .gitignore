@@ -6,6 +6,7 @@ __pycache__/
 # credentials
 credentials.json
 token.json
+klocksnack.db
 
 # C extensions
 *.so

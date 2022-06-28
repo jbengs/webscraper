@@ -2,15 +2,14 @@
 import requests
 from bs4 import BeautifulSoup
 from ksController import ksController
-from mail import Mail
+from gmail import Gmail
 
 class ks:
     def __init__(self, searchWords):
-        # Create the database
-        self.db = ksController()
-        self.db.createTable()
-        self.mail = Mail()
-        self.words = searchWords
+        self.db = ksController() # Connection to sqlite database
+        self.db.createTable()    # Sets up database table
+        self.gmail = Gmail()     # Sets up connection to Gmail API
+        self.words = searchWords # Search words
 
     def update(self):
         # Get the website
@@ -27,23 +26,15 @@ class ks:
         for link in links:
             for word in self.words:
                 if(word in link.text.lower()):
+                    # Find user element
                     userTag = link.parent.parent.find('ul', class_="structItem-parts").find('a', class_="username")
                     userId = userTag["data-user-id"]
                     userName = userTag.text.strip().lower()
                     title = link.text.strip().lower()
-                    url = "https://klocksnack.se2" + link['href']
+                    url = "https://klocksnack.se" + link['href']
+                    # Check database if the post has allready been used
                     if not self.db.checkDatabase(title):
                         self.db.insertVaribleIntoTable(title=title, user=userName, user_id=userId, url=url)
-                        print("mail.send('KS',title, userName, url")
+                        self.gmail.sendEmail(forum='KS', title=title, user=userName, url=url)
                     else:
-                        print("dont send email")
-                    
-                    # print()
-                    # print(title)
-                    # print(url)
-                    # print('userlink: ')
-                    # print(userTag)
-                    # print('user: ')
-                    # print(userName)
-                    # print('userId: ')
-                    # print(userId)
+                        print(f"Email allready sent for: {title}")
