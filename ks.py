@@ -2,12 +2,14 @@
 import requests
 from bs4 import BeautifulSoup
 from ksController import ksController
+from mail import Mail
 
 class ks:
     def __init__(self, searchWords):
         # Create the database
         self.db = ksController()
         self.db.createTable()
+        self.mail = Mail()
         self.words = searchWords
 
     def update(self):
@@ -27,12 +29,12 @@ class ks:
                 if(word in link.text.lower()):
                     userTag = link.parent.parent.find('ul', class_="structItem-parts").find('a', class_="username")
                     userId = userTag["data-user-id"]
-                    userName = userTag.text.strip()
+                    userName = userTag.text.strip().lower()
                     title = link.text.strip().lower()
                     url = "https://klocksnack.se2" + link['href']
-                    if not db.checkDatabase(title):
-                        db.insertVaribleIntoTable(title=title, user=userName, user_id=userId, url=url)
-                        print("Send email")
+                    if not self.db.checkDatabase(title):
+                        self.db.insertVaribleIntoTable(title=title, user=userName, user_id=userId, url=url)
+                        print("mail.send('KS',title, userName, url")
                     else:
                         print("dont send email")
                     
