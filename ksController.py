@@ -8,10 +8,10 @@ class ksController:
 
     def createTable(self):
         try:
-            query= """CREATE TABLE klocksnack (
+            query = """CREATE TABLE klocksnack (
                                     id INTEGER PRIMARY KEY,
                                     title TEXT NOT NULL,
-                                    user text NOT NULL,
+                                    user TEXT NOT NULL,
                                     user_id INTEGER NOT NULL,
                                     url TEXT NOT NULL);"""
             self.cursor.execute(query)
@@ -21,7 +21,7 @@ class ksController:
             #print("Failed to create sqlite table 'klocksnack. Error: ", error)
             print(error)
             
-    def insertVaribleIntoTable(self, title, user, user_id, url):
+    def insertVariableIntoTable(self, title, user, user_id, url):
         titleLower = title.lower()
         userLower = user.lower()
         try:
