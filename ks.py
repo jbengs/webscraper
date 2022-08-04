@@ -29,12 +29,12 @@ class ks:
                     # Find user element
                     userTag = link.parent.parent.find('ul', class_="structItem-parts").find('a', class_="username")
                     userId = userTag["data-user-id"]
-                    userName = userTag.text.strip().lower()
-                    title = link.text.strip().lower()
+                    userName = userTag.text.strip()
+                    title = link.text.strip()
                     url = "https://klocksnack.se" + link['href']
                     # Check database if the post has allready been used
-                    if not self.db.checkDatabase(title):
+                    if not self.db.checkDatabase(title, userName):
                         self.db.insertVaribleIntoTable(title=title, user=userName, user_id=userId, url=url)
                         self.gmail.sendEmail(forum='KS', title=title, user=userName, url=url)
                     else:
-                        print(f"Email allready sent for: {title}")
+                        print(f"KS: {title} - email allready sent")

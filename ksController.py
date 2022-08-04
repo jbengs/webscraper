@@ -20,12 +20,15 @@ class ksController:
         except sqlite3.Error as error:
             #print("Failed to create sqlite table 'klocksnack. Error: ", error)
             print(error)
+            
     def insertVaribleIntoTable(self, title, user, user_id, url):
+        titleLower = title.lower()
+        userLower = user.lower()
         try:
             sqlite_insert_with_param = """INSERT INTO klocksnack
                             (title, user, user_id, url) 
                             VALUES (?, ?, ?, ?);"""
-            data_tuple = (title, user, user_id, url)
+            data_tuple = (titleLower, userLower, user_id, url)
             self.cursor.execute(sqlite_insert_with_param, data_tuple)
             self.sqliteConnection.commit()
             #print(f"{title} inserted successfully into klocksnack table")
@@ -33,11 +36,13 @@ class ksController:
             print(f"Failed to insert {title} into sqlite klocksnack table: ", error)
 
     # Checks wheter the row allready exist in the database. Returns True if it exists, else False
-    def checkDatabase(self, title):
+    def checkDatabase(self, title, user):
+        titleLower = title.lower()
+        userLower = user.lower()
         try:
-            query = """SELECT (title) FROM klocksnack WHERE
-                        (title = ?)"""
-            data_tuple = (title,)
+            query = """SELECT * FROM klocksnack WHERE
+                        (title = ? AND user = ?)"""
+            data_tuple = (titleLower, userLower)
             self.cursor.execute(query, data_tuple)
             rows = self.cursor.fetchone()
             self.sqliteConnection.commit()

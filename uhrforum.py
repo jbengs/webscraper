@@ -2,7 +2,6 @@
 import requests
 from bs4 import BeautifulSoup
 from uhrforumController import uhrforumController
-from ksController import ksController
 from gmail import Gmail
 
 class uhrforum:
@@ -28,14 +27,16 @@ class uhrforum:
             for word in self.words:
                 if(word in link.text.lower()):
                     # Find user element
-                    userTag = link.parent.parent.find('ul', class_="structItem-parts").find('a', class_="username")
+                    userTag = link.parent.parent.find('ul', class_="structItem-parts").find('span', class_="username")
                     userId = userTag["data-user-id"]
-                    userName = userTag.text.strip().lower()
-                    title = link.text.strip().lower()
+                    userName = userTag.text.strip()
+                    title = link.text.strip()
                     url = "https://uhrforum.de" + link['href']
+                    #print(f'found: {userId}, {userName}, {title}, {url}')
+
                     # Check database if the post has allready been used
-                    if not self.db.checkDatabase(title):
+                    if not self.db.checkDatabase(title, userName):
                         self.db.insertVaribleIntoTable(title=title, user=userName, user_id=userId, url=url)
                         self.gmail.sendEmail(forum='UhrForum', title=title, user=userName, url=url)
                     else:
-                        print(f"UhrForum.de: email allready sent for: {title}")
+                        print(f"UhrForum.de: {title} - email allready sent")
