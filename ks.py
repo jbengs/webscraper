@@ -34,7 +34,7 @@ class ks:
                     url = "https://klocksnack.se" + link['href']
                     # Check database if the post has allready been used
                     if not self.db.checkDatabase(title, userName):
-                        self.db.insertVaribleIntoTable(title=title, user=userName, user_id=userId, url=url)
+                        self.db.insertVariableIntoTable(title=title, user=userName, user_id=userId, url=url)
                         self.gmail.sendEmail(forum='KS', title=title, user=userName, url=url)
                     else:
                         print(f"KS: {title} - email allready sent")
