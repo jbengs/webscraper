@@ -32,7 +32,7 @@ class omegaforums:
 
                     if not self.db.checkDatabase(title, user):
                         self.db.insertVariableIntoTable(title=title, user=user, url=url)
-                        self.gmail.sendEmail(forum='omegaforums', title=title, user=user, url=url)
+                        self.gmail.sendEmail(forum='OF', title=title, user=user, url=url)
                     else:
                         #print(f"OF: {title} - email allready sent")
                         oldPosts += 1
