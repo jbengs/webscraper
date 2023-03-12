@@ -1,7 +1,7 @@
 # Automated webscraper that emails any findidings to subscribers.
 This project was born out of my interest for the mechanical wonders that are vintage watches. As a collector, I need to constantly monitor the various watch forums that exists for possible aquisitions. As an engineer, I wanted to automate this.
 
-This application is built to monitor the marketplace of Klocksnack.se](https://klocksnack.se/forums/handla-s%C3%A4ljes-bytes.11/), a swedish watch forum.
+This application is built to monitor the marketplace of [Klocksnack.se](https://klocksnack.se/forums/handla-s%C3%A4ljes-bytes.11/), a swedish watch forum.
 
 The user specifies search criterieas throug the command line. When the app discovers a new posting, it will send an email to the subscriber. The email contains a brief outline of the discovery, enought for the user to judge if its a true or false positive. A link to the full psoting is included, so that the user can get full information with just one click.
 
@@ -26,8 +26,7 @@ This application is written in Python, with SQLite3 as database. Webscraping is 
 ## Third party requirments
 This application requiers a Gmail account and a Google cloud project with the Gmail API enabled. It uses OAuth client ID credentials.
 
-Read more here: https://developers.google.com/gmail/api/quickstart/python \
-OR better eplained here: https://www.javatpoint.com/gmail-api-in-python
+Read more [here](https://developers.google.com/gmail/api/quickstart/python) or better eplained [here](https://www.javatpoint.com/gmail-api-in-python)
 
 ### Details
 The cloud project is hosted on bengsklockserver account.\
@@ -37,7 +36,7 @@ There has to be a valid credentials.json file in the working directory. You obta
 Note: gmail only accepts the Gmail API, not SSL and SMTP as in most tutorials.\
 
 ## Tutorial
-The file realPythonTutorial is a code along of the tutorial "Beautiful Soup: Build a Web Scraper With Python" found on\ https://realpython.com/beautiful-soup-web-scraper-python/
+The file realPythonTutorial is a code along of the tutorial [Beautiful Soup: Build a Web Scraper With Python](https://realpython.com/beautiful-soup-web-scraper-python/)
 
 ### App written on the road to Paris, 27/06/2022
 from now to infinity:\
