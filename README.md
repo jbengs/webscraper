@@ -1,5 +1,14 @@
-# webscraper
-A webscraper built to scrape the marketplace of Klocksnack.se, a swedish watch forum. Functionallity to scrape the german forum Uhrform.de and the american forum omegaforums.net has been added.
+# Automated webscraper that emails any findidings to subscribers.
+This project was born out of my interest for the mechanical wonders that are vintage watches. As a collector, I need to constantly monitor the various watch forums that exists for possible aquisitions. As an engineer, I wanted to automate this.
+
+This application is built to monitor the marketplace of Klocksnack.se](https://klocksnack.se/forums/handla-s%C3%A4ljes-bytes.11/), a swedish watch forum.
+
+The user specifies search criterieas throug the command line. When the app discovers a new posting, it will send an email to the subscriber. The email contains a brief outline of the discovery, enought for the user to judge if its a true or false positive. A link to the full psoting is included, so that the user can get full information with just one click.
+
+Functionallity to scrape the german forum [Uhrform.de](https://uhrforum.de/forums/angebote.11/) and the american forum [omegaforums.net](https://omegaforums.net/forums/private-watch-sales/) has been added.
+
+# Tech Stack
+This application is written in Python, with SQLite3 as database. Webscraping is done using the [Beautiful soup parser](https://beautiful-soup-4.readthedocs.io/en/latest/#) and the email service is provided via Gmail's API.
 
 ## How to use
     1. Download the files
