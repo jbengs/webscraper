@@ -3,9 +3,9 @@ This project was born out of my interest for the mechanical wonders that are vin
 
 This application is built to monitor the marketplace of [Klocksnack.se](https://klocksnack.se/forums/handla-s%C3%A4ljes-bytes.11/), a swedish watch forum.
 
-The user specifies search criterieas through the command line. When the app discovers a new posting, it will send an email to the subscriber. The email contains a brief outline of the discovery, enough for the user to judge if its a true or false positive. A link to the full psoting is included, so that the user can get full information with just one click. The app remebers any previous findings and will not send a new notification when a posting is bumped up.
+The user specifies search criterieas through the command line. When the app discovers a new posting, it will send an email to the subscriber. The email contains a brief outline of the discovery, enough for the user to judge if its a true or false positive. A link to the full posting is included, so that the user can get full information with just one click. The app remembers any previous findings and will not send a new notification when a posting is bumped up.
 
-Functionallity to scrape the german forum [Uhrform.de](https://uhrforum.de/forums/angebote.11/) and the american forum [omegaforums.net](https://omegaforums.net/forums/private-watch-sales/) has been added.
+Functionallity to scrape the German forum [Uhrform.de](https://uhrforum.de/forums/angebote.11/) and the American forum [omegaforums.net](https://omegaforums.net/forums/private-watch-sales/) has been added.
 
 # Tech Stack
 This application is written in Python, with SQLite3 as database. Webscraping is done using the [Beautiful soup parser](https://beautiful-soup-4.readthedocs.io/en/latest/#) and the email service is provided via Gmail's API.
@@ -30,8 +30,11 @@ Read more [here](https://developers.google.com/gmail/api/quickstart/python) or b
 
 ### Details
 The cloud project is hosted on bengsklockserver account.
+
 It is an application under testing, so users must be added via the dashboard to be able to log in.
+
 To get a new login: delete the token.json file and restart the script "quickstart.py".
+
 There has to be a valid credentials.json file in the working directory. You obtain this file from google cloud dashboard, rename it and move it.
 Note: gmail only accepts the Gmail API, not SSL and SMTP as in most tutorials.
 
