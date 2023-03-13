@@ -1,12 +1,12 @@
-from ks import ks #Klocksnack.se
-from uhrforum import uhrforum #Uhrforum.de
-from omegaforums import omegaforums #omegaforums
+from klocksnack.ks import ks #Klocksnack.se
+from uhrforum.uhrforum import uhrforum #Uhrforum.de
+from omegaforums.omegaforums import omegaforums #omegaforums
 import time
 
 #Must be lowercase!
-searchWords = ['omega', 'cartier', 'constellation', '168.005', '167.005', 'santos']
+searchWords = ['omega', 'cartier', 'constellation', '168.005', '167.005', 'santos', 'tank', 'carree', 'galbee']
 updateNbr = 1
-timeout = 300 #seconds
+timeout = 3600 #seconds
 
 print(f'----------------------------\nWelcome to the server!\nSETTINGS\n - Frequency: {timeout} seconds\n - Sites: Klocksnack, Uhrforum, Omegaforums\n - Searchwords: {searchWords}\n - Email to: bengs.joel@gmail.com\n')
 print('Datatables: ')

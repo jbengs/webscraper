@@ -2,7 +2,7 @@
 from random import betavariate
 import requests
 from bs4 import BeautifulSoup
-from omegaforumsController import omegaforumsController
+from omegaforums.omegaforumsController import omegaforumsController
 from gmail import Gmail
 
 class omegaforums:
