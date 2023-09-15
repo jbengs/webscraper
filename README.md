@@ -31,7 +31,7 @@ The user can access the finding through the link in the email.
     1. Download the files
     2. Open Powershell or the Terminal and navigate to the directory
     3. Set up a virtual environment in Python.
-    4. Launch the virtual environment using the command "venv\Scripts\Activate.ps1" (on windows powershell) or "source venv\Scripts\activate.sh" on Mac.
+    4. Launch the virtual environment using the command "venv\Scripts\Activate.ps1" (on windows powershell) or "source venv/Scripts/activate.sh" on Mac.
     4. Install dependencies ("pip install google-auth google-auth-oauthlib google-api-python-client requests beautifulsoup4 gmail")
     6. Edit keywords and frequency in app.py. Edit subscriber email in gmail.py.
     5. Launch app.py by typing *python app.py* in the active virtual environment
